@@ -1,0 +1,40 @@
+
+// canvas {
+//     display: block;
+//     position: relative;
+//     width: 320px;
+//     height: 586px;
+// }
+
+// #bottle {
+//     display: none;
+// }
+
+canvas {
+    position: absolute;
+    display: block;
+    margin: 0;  
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 320px;
+    height: 586px;
+    background: #fff;
+}
+
+#bottle {
+    display: block;
+    position: fixed;
+    width: 320px;
+    height: 586px;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    pointer-events: none;   
+    background: transparent url('../img/bottle-overlay.png') center center no-repeat;
+    background-size: auto 586px;
+}

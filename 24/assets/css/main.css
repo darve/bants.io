@@ -1,0 +1,12 @@
+
+
+body, html {
+	background: #2b2c2f;
+	padding: 0;
+}
+
+canvas {
+	position: relative;
+	display: block;
+	margin: 0;
+}

@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+	<title>#38 | TRICKY</title>
+	<link rel="stylesheet" href="assets/css/main.css">
+	<!--[if lt IE 9]>
+		<script type="text/javascript" src="assets/js/flashcanvas.js"></script>
+		<script type="text/javascript" src="assets/js/canvas2png.js"></script>
+	<![endif]-->
+</head>
+<body>
+	<canvas id="canvas"></canvas>
+	<div id="bottle"></div>
+	<button>GIVE ME AN IMAGE</button>
+	<script src="assets/js/jquery.js"></script>
+	<script src="assets/js/smoothcurve.js"></script>
+	<script src="assets/js/requestAnimationFrame.js"></script>
+	<script src="assets/js/Vector2.js"></script>
+	<script src="assets/js/class.js"></script>
+	<script src="assets/js/classes/Drop.js"></script>
+	<script src="assets/js/main.js"></script>
+</body>
+</html>

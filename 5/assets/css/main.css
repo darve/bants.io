@@ -1,0 +1,10 @@
+
+
+body, html {
+	background: #000;
+}
+
+canvas {
+	position: relative;
+	display: block;
+}
