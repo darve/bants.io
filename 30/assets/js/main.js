@@ -27,11 +27,11 @@ var FUNK = {
 		FUNK.vector = new Vector2( 600 , 300 );
 
 		$(document).on('mousedown', 'canvas', function(event){
-			// FUNK.mousedown = true;
+			FUNK.mousedown = true;
 		});
 
 		$(document).on('mouseup', 'canvas', function(event){
-			// FUNK.mousedown = false;
+			FUNK.mousedown = false;
 		});
 
 		$(document).on('mousemove', 'canvas', function(event){
@@ -42,7 +42,7 @@ var FUNK = {
 
 		$(document).on('touchmove touchstart', 'canvas', function(event){
 			event.preventDefault();
-			// FUNK.mousedown === true;
+			FUNK.mousedown === true;
 			var touch =  event.originalEvent.touches[0] || event.originalEvent.changedTouches[0]
 			FUNK.daveX = touch.pageX;
 			FUNK.daveY = touch.pageY;
@@ -52,7 +52,7 @@ var FUNK = {
 
 		$(document).on('touchend', 'canvas', function(event){
 			event.preventDefault();
-			// FUNK.mousedown = false;
+			FUNK.mousedown = false;
 		});
 
 		FUNK.verts.push( new Vert( new Vector2( 0, 0), new Vector2(FUNK.canvas.width,FUNK.canvas.height) ) );
