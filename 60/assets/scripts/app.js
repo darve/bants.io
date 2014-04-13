@@ -45,12 +45,10 @@
 	};
 
 	bants.movelads = function () {
-
 		for ( var i = 0; i < numlads; i++ ) {
 			lads_x[i] += ( Math.random() );
 			lads_y[i] += ( Math.random() );
 		}
-
 	};
 
 	bants.render = function () {
