@@ -28,10 +28,12 @@
 		cv.MSAASamples = 4;
 	
 		$(doc).on('mousedown', 'canvas', function(e){
+			e.preventDefault();
 			mousedown = true;
 		});
 
 		$(doc).on('mouseup', 'canvas', function(e){
+			e.preventDefault();
 			mousedown = false;
 		});
 
@@ -40,15 +42,17 @@
 		});
 
 		$(doc).on('touchstart', 'canvas', function(e){
+			e.preventDefault();
 			mousedown = true;
 		});
 
 		$(doc).on('touchend', 'canvas', function(e){
+			e.preventDefault();
 			mousedown = false;
 		});
 
 		$(doc).on('touchmove', 'canvas', function(e){
-			// ev = e;
+			e.preventDefault();
 			ev = e.originalEvent.changedTouches[0];
 		});
 
