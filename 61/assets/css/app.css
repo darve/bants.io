@@ -232,3 +232,20 @@ canvas {
 /* ======================== */
 /* 	Shameful styles
 /* ======================================= */
+
+
+a.clear {
+  display: block;
+  position: fixed;
+  left: 12px;
+  top: 12px;
+  padding: 8px;
+  background: #f9672c;
+  color: white;
+  text-decoration: none;
+  font-size: 13px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+}

@@ -56,10 +56,14 @@
 			ev = e.originalEvent.changedTouches[0];
 		});
 
+		$(doc).on('click', 'a.clear', bants.bg);
+
+
 		bants.render();
 	};
 
-	bants.bg = function () {
+	bants.bg = function (e) {
+		e.preventDefault();
 		cx.fillStyle = '#ffffff';
 		cx.fillRect(0, 0, config.width, config.height);
 	};
