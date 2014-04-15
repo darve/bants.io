@@ -36,7 +36,7 @@
 
 	};
 
-	bants.addLad = function ( index ) {
+	bants.addlad = function ( index ) {
 		lads_x[index || numlads] = Math.floor(Math.random() * config.width) - 50;
 		lads_y[index || numlads] = Math.floor(Math.random() * config.height) - 50;
 		lads_size[index || numlads] = Math.random() * 2;
@@ -67,7 +67,7 @@
 		bants.movelads();
 
 		if ( loopnum % 5 === 0 && numlads < 2048 ) {
-			bants.addLad();
+			bants.addlad();
 		}
 
 		if ( loopnum % 20 === 0 ) {
