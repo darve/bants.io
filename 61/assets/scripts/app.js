@@ -10,7 +10,11 @@
 		cv = doc.getElementsByTagName('canvas')[0],
 		cx = cv.getContext('2d'),
 		$win = $(win),
-		mousedown = false;
+		mousedown = false,
+		ev = {
+			pageX: $(window).innerwidth / 2,
+			pageY: $(window).innerHeight / 2
+		};
 		
 	bants.init = function () {
 		
@@ -32,22 +36,39 @@
 		});
 
 		$(doc).on('mousemove', 'canvas', function(e){
-			if ( mousedown ) {
-
-			 	cx.beginPath();
-			 	cx.fillStyle = 'rgba(249,103,45,' + Math.random() + ')';
-		       	cx.arc(e.pageX,e.pageY, Math.random() * 7, 0, 2 * Math.PI, false);
-			 	cx.fill();
-			 	cx.setTransform(1, 0, 0, 1, 0, 0);
-			}
+			ev = e;
 		});
 
-		// bants.render();
+		$(doc).on('touchstart', 'canvas', function(e){
+			mousedown = true;
+		});
+
+		$(doc).on('touchend', 'canvas', function(e){
+			mousedown = false;
+		});
+
+		$(doc).on('touchmove', 'canvas', function(e){
+			// ev = e;
+			ev = e.originalEvent.changedTouches[0];
+		});
+
+		bants.render();
 	};
 
 	bants.bg = function () {
 		cx.fillStyle = '#ffffff';
 		cx.fillRect(0, 0, config.width, config.height);
+	};
+
+	bants.render = function() {
+		if ( mousedown ) {
+		 	cx.beginPath();
+		 	cx.fillStyle = 'rgba(249,103,45,' + Math.random() + ')';
+	       	cx.arc(ev.pageX,ev.pageY, Math.random() * 7, 0, 2 * Math.PI, false);
+		 	cx.fill();
+		 	cx.setTransform(1, 0, 0, 1, 0, 0);
+		}
+		window.requestAnimationFrame( bants.render );
 	};
 	
 	// Expose our bants to the window.
