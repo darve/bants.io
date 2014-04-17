@@ -58,7 +58,6 @@
 
 		$(doc).on('click', 'a.clear', bants.bg);
 
-
 		bants.render();
 	};
 
