@@ -79,6 +79,7 @@
 		$(doc).on('touchmove', 'canvas', function(e){
 			e.preventDefault();
 			ev = e.originalEvent.changedTouches[0];
+			bants.render();
 		});
 
 		$(doc).on('click', cv, function(e){
