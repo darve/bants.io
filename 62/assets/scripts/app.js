@@ -47,7 +47,7 @@
 			cx.clearRect(0,0,cv.width,cv.height);
 		};
 
-		img.src = 'http://0.0.0.0:3000/62/darve.png';
+		img.src = 'darve.png';
 	
 		$(doc).on('mousedown', 'canvas', function(e){
 			e.preventDefault();
