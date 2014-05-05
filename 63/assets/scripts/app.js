@@ -28,7 +28,7 @@
 		vecX = new Float32Array(90000),
 		vecY = new Float32Array(90000),
 
-		density = 6,
+		density = 12,
 		scale = 1,
 		c = 0;
 		
