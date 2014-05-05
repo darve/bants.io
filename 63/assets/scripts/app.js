@@ -28,7 +28,7 @@
 		vecX = new Float32Array(90000),
 		vecY = new Float32Array(90000),
 
-		density = 8,
+		density = 6,
 		scale = 1,
 		c = 0;
 		
@@ -45,7 +45,7 @@
 		cv.height = config.height;
 		cv.MSAAEnabled = true;
 		cv.MSAASamples = 4;
-		// cx.globalCompositeOperation = 'lighter';
+		// cx.globalCompositeOperation = 'darker';
 
 		img = new Image();
 		
@@ -56,7 +56,7 @@
 			bants.buildImage();
 		};
 
-		img.src = 'building.png';
+		img.src = 'kit.png';
 	
 		$(doc).on('mousedown', 'canvas', function(e){
 			e.preventDefault();
@@ -70,7 +70,6 @@
 
 		$(doc).on('mousemove', 'canvas', function(e){
 			ev = e;
-			console.log(e.pageX, e.pageY);
 			// if ( mousedown == true ) {
 			// 	bants.render();
 			// }
@@ -137,8 +136,8 @@
 				alphas[c] = d[p+3];
 
 				// add positions
-				dotsX[c] = ((config.width / 2)-150)+x;
-				dotsY[c] = ((config.height / 2)-150)+y;
+				dotsX[c] = ((config.width / 2)-(img.width/2))+x;
+				dotsY[c] = ((config.height / 2)-(img.height/2))+y;
 
 				vecX[c] = Math.random() * 1024;
 				vecY[c] = Math.random() * 768;
@@ -164,7 +163,7 @@
 				distance = from.minusNew( to ).magnitude(),
 				mouse = new Vector2( ev.pageX, ev.pageY );
 
-			if ( from.isCloseTo( mouse, 60 ) ) {
+			if ( from.isCloseTo( mouse, 30 ) ) {
 				var angle = mouse.minusNew( from ).normalise();
 				from.minusEq( angle.multiplyEq(10) );
 				vecX[i] = from.x;
@@ -173,7 +172,7 @@
 				var angle = to.minusNew( from ).normalise();
 				from.plusEq( angle.multiplyEq(distance/10) );
 
-				if ( !from.isCloseTo( mouse, 60) ) {
+				if ( !from.isCloseTo( mouse, 30) ) {
 					vecX[i] = from.x;
 					vecY[i] = from.y;					
 				}
