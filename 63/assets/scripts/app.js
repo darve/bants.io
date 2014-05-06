@@ -18,15 +18,15 @@
 			pageY: $(window).innerHeight / 2
 		},
 
-		reds = new Float32Array(90000),
-		blues = new Float32Array(90000),
-		greens = new Float32Array(90000),
-		alphas = new Float32Array(90000),
+		reds = new Float32Array(190000),
+		blues = new Float32Array(190000),
+		greens = new Float32Array(190000),
+		alphas = new Float32Array(190000),
 
-		dotsX = new Float32Array(90000),
-		dotsY = new Float32Array(90000),
-		vecX = new Float32Array(90000),
-		vecY = new Float32Array(90000),
+		dotsX = new Float32Array(190000),
+		dotsY = new Float32Array(190000),
+		vecX = new Float32Array(190000),
+		vecY = new Float32Array(190000),
 
 		density = 12,
 		scale = 1,
@@ -51,12 +51,12 @@
 		
 		img.onload = function(e){
 			cx.drawImage(this, 0, 0);
-			imgdata = cx.getImageData(0,0,300,300);
+			imgdata = cx.getImageData(0,0,this.width,this.height);
 			cx.clearRect(0,0,cv.width,cv.height);
 			bants.buildImage();
 		};
 
-		img.src = 'kit.png';
+		img.src = 'festival-twats.png';
 	
 		$(doc).on('mousedown', 'canvas', function(e){
 			e.preventDefault();
@@ -107,6 +107,31 @@
 			// }
 
 		});
+
+		cv.ondragover = function(e) {
+			e.preventDefault();
+			// console.log(e);
+		};
+
+		cv.ondrop = function(e) {
+			e.preventDefault();
+
+			var reader = new FileReader();
+			reader.onload = function(e) {
+				reds = new Float32Array(190000),
+				blues = new Float32Array(190000),
+				greens = new Float32Array(190000),
+				alphas = new Float32Array(190000),
+
+				dotsX = new Float32Array(190000),
+				dotsY = new Float32Array(190000),
+				vecX = new Float32Array(190000),
+				vecY = new Float32Array(190000),
+				img.src = e.target.result;
+			};
+			reader.readAsDataURL(e.dataTransfer.files[0]);
+		}
+
 		bants.render();
 	};
 
@@ -139,16 +164,18 @@
 				dotsX[c] = ((config.width / 2)-(img.width/2))+x;
 				dotsY[c] = ((config.height / 2)-(img.height/2))+y;
 
-				vecX[c] = Math.random() * 1024;
-				vecY[c] = Math.random() * 768;
+				// vecX[c] = Math.random() * 1024;
+				// vecY[c] = Math.random() * 768;
+				vecX[c] = config.width/2;
+				vecY[c] = config.height/2;
 
 				p += (4 * density);
 				c++;
 			}
 			// console.log('new row');
-			p = (y * 300) * 4;
+			p = (y * img.width) * 4;
 		}
-
+		console.log(img.width);
 		console.log('build finished', c);
 	};
 
@@ -163,7 +190,7 @@
 				distance = from.minusNew( to ).magnitude(),
 				mouse = new Vector2( ev.pageX, ev.pageY );
 
-			if ( from.isCloseTo( mouse, 30 ) ) {
+			if ( from.isCloseTo( mouse, 60 ) ) {
 				var angle = mouse.minusNew( from ).normalise();
 				from.minusEq( angle.multiplyEq(10) );
 				vecX[i] = from.x;
@@ -172,9 +199,9 @@
 				var angle = to.minusNew( from ).normalise();
 				from.plusEq( angle.multiplyEq(distance/10) );
 
-				if ( !from.isCloseTo( mouse, 30) ) {
+				if ( !from.isCloseTo( mouse, 60) ) {
 					vecX[i] = from.x;
-					vecY[i] = from.y;					
+					vecY[i] = from.y;
 				}
 			} 
 
