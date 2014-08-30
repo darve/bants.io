@@ -12,7 +12,7 @@ var Bant = Class.extend({
 		this.radius = Math.floor( Math.random() * 10) + 8;
 		this.velocity.rotate(Math.random()*32-Math.random()*32);
 
-		this.color = Math.floor(Math.random()*16777215).toString(16);
+		this.color = '#' + Math.floor(Math.random()*16777215).toString(16);
 		// this.color = '#ffffff';
 		// this.gravity = Math.random();
 		this.gravity = 0.1

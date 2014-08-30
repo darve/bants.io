@@ -14,7 +14,7 @@ var Bant = Class.extend({
 		}
 		// this.speed = (Math.random() * 10) + 8;
 		this.speed = 16;
-		this.color = Math.floor(Math.random()*16777215).toString(16);
+		this.color = '#' + Math.floor(Math.random()*16777215).toString(16);
 	},
 
 	calculate: function() {

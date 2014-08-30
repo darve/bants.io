@@ -5,7 +5,7 @@ var Bant = Class.extend({
 	init: function( position, vector ){
 		this.pos = position;
 		this.vector = vector;
-		// this.color = Math.floor(Math.random()*16777215).toString(16);
+		// this.color = '#' + Math.floor(Math.random()*16777215).toString(16);
 		this.rand = Math.floor( Math.random() * 100 );
 
 		this.scale = Math.random();

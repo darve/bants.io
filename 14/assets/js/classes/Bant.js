@@ -8,7 +8,7 @@ var Bant = Class.extend({
 
 		this.speed = Math.floor( Math.random() * 8 ) + 2;
 
-		this.color = Math.floor(Math.random()*16777215).toString(16);
+		this.color = '#' + Math.floor(Math.random()*16777215).toString(16);
 	},
 
 	calculate: function() {

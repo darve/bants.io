@@ -17,7 +17,7 @@ var Bant = Class.extend({
 		this.speed = 2;
 		// this.rotation = FUNK.canvas.width > 420 ? .8 : 2;
 		this.vector.rotate(Math.random()*32-Math.random()*32);
-		this.color = Math.floor(Math.random()*16777215).toString(16);
+		this.color = '#' + Math.floor(Math.random()*16777215).toString(16);
 	},
 
 	calculate: function() {

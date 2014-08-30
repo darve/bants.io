@@ -18,19 +18,23 @@
 			pageY: $(window).innerHeight / 2
 		},
 
-		reds = new Float32Array(190000),
-		blues = new Float32Array(190000),
-		greens = new Float32Array(190000),
-		alphas = new Float32Array(190000),
+		reds = new Float32Array(256000),
+		blues = new Float32Array(256000),
+		greens = new Float32Array(256000),
+		alphas = new Float32Array(256000),
 
-		dotsX = new Float32Array(190000),
-		dotsY = new Float32Array(190000),
-		vecX = new Float32Array(190000),
-		vecY = new Float32Array(190000),
+		dotsX = new Float32Array(256000),
+		dotsY = new Float32Array(256000),
+		vecX = new Float32Array(256000),
+		vecY = new Float32Array(256000),
 
-		density = 12,
+		mVecX = new Float32Array(256000),
+		mVecY = new Float32Array(256000),
+
+		density = 20,
 		scale = 1,
-		c = 0;
+		c = 0,
+		momentum = 100;
 		
 	var brightness = function (color) {
 		// (R+R+B+G+G+G)/6
@@ -168,6 +172,9 @@
 				// vecY[c] = Math.random() * 768;
 				vecX[c] = config.width/2;
 				vecY[c] = config.height/2;
+
+				mVecX = Math.random() - Math.random();
+				mVecY = Math.random() - Math.random();
 
 				p += (4 * density);
 				c++;
