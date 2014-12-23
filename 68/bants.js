@@ -74,7 +74,8 @@
     }
 
     function draw() {
-        cx.fillStyle = "#0e1117";
+        // cx.fillStyle = "#0e1117";
+        cx.fillStyle = "rgba(14,17,23,0.3)";
         cx.fillRect(0, 0, width, height);
 
         for ( var i = 0, l = dots.length; i < l; i++ ) {
