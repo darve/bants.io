@@ -8,5 +8,5 @@ process.argv.forEach(function (val, index, array) {
 	}
 });
 
-connect.createServer(connect.static(__dirname)).listen( args.port || 80 );
-console.log( 'server running on port ' + args.port || 80 );
+connect.createServer(connect.static(__dirname)).listen( args.port || 3000 );
+console.log( 'server running on port ' + args.port || 3000 );

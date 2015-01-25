@@ -5,12 +5,14 @@
     var cx = c.getContext('2d'),
         width = w.innerWidth,
         height = w.innerHeight,
+        w2 = width/2,
+        h2 = height/2,
         dots = [],
         num = 40,
         radius = 2,
-        spacing = 25,
-        speed = 100,
-        increase = Math.PI / 100;
+        spacing = 12,
+        speed = 150,
+        increase = Math.PI / 1000;
 
     function init() {
         c.width = width;
@@ -20,9 +22,9 @@
 
         for ( var i = 0, l = num; i < l; i++ ) {
             dots[i] = {
-                x: (width/2) - ((num/2) * spacing) + ( i * spacing),
-                y: height/2,
-                inc: ((i+1) / 10) / 25,
+                x: w2 - ((num/2) * spacing) + ( i * spacing),
+                y: h2,
+                inc: ((i+1) / 500),
                 sine: 0
             }
         }
@@ -39,7 +41,7 @@
 
     function integrate() {
         for ( var i = 0, l = dots.length; i < l; i++ ) {
-            dots[i].y = (height/2) + (speed * Math.sin(dots[i].sine));
+            dots[i].y = h2 + (speed * Math.sin(dots[i].sine));
             dots[i].sine += dots[i].inc;
         }
     }
