@@ -18,18 +18,18 @@
 			pageY: $(window).innerHeight / 2
 		},
 
-		reds = new Float32Array(256000),
-		blues = new Float32Array(256000),
-		greens = new Float32Array(256000),
-		alphas = new Float32Array(256000),
+		reds = new Float32Array(128000),
+		blues = new Float32Array(128000),
+		greens = new Float32Array(128000),
+		alphas = new Float32Array(128000),
 
-		dotsX = new Float32Array(256000),
-		dotsY = new Float32Array(256000),
-		vecX = new Float32Array(256000),
-		vecY = new Float32Array(256000),
+		dotsX = new Float32Array(128000),
+		dotsY = new Float32Array(128000),
+		vecX = new Float32Array(128000),
+		vecY = new Float32Array(128000),
 
-		mVecX = new Float32Array(256000),
-		mVecY = new Float32Array(256000),
+		mVecX = new Float32Array(128000),
+		mVecY = new Float32Array(128000),
 
 		density = 20,
 		scale = 1,
@@ -92,24 +92,11 @@
 		$(doc).on('touchmove', 'canvas', function(e){
 			e.preventDefault();
 			ev = e.originalEvent.changedTouches[0];
-			// bants.render();
 		});
 
 		$(doc).on('click', cv, function(e){
 			ev.pageX = e.pageX;
 			ev.pageY = e.pageY;
-
-			// var newX = (Math.random() * 1200)-600,
-			// 	newY = (Math.random() * 600)-300;
-
-			// for ( var i = 0, l = c; i < l; i++ ) {
-			// 	dotsX[i] += newX;
-			// 	dotsY[i] += newY;	
-
-			// 	// vecX[i] = Math.random() * 1024;
-			// 	// vecY[i] = Math.random() * 768;
-			// }
-
 		});
 
 		cv.ondragover = function(e) {
@@ -144,7 +131,6 @@
 	};
 
 	bants.bg = function () {
-		// e.preventDefault();
 		cx.fillStyle = '#ffffff';
 		cx.fillRect(0, 0, config.width, config.height);
 	};
@@ -168,8 +154,6 @@
 				dotsX[c] = ((config.width / 2)-(img.width/2))+x;
 				dotsY[c] = ((config.height / 2)-(img.height/2))+y;
 
-				// vecX[c] = Math.random() * 1024;
-				// vecY[c] = Math.random() * 768;
 				vecX[c] = config.width/2;
 				vecY[c] = config.height/2;
 
@@ -179,11 +163,8 @@
 				p += (4 * density);
 				c++;
 			}
-			// console.log('new row');
 			p = (y * img.width) * 4;
 		}
-		console.log(img.width);
-		console.log('build finished', c);
 	};
 
 	bants.render = function() {
@@ -202,6 +183,7 @@
 				from.minusEq( angle.multiplyEq(10) );
 				vecX[i] = from.x;
 				vecY[i] = from.y;
+
 			} else if ( !from.equals(to) ) {
 				var angle = to.minusNew( from ).normalise();
 				from.plusEq( angle.multiplyEq(distance/10) );
@@ -210,25 +192,8 @@
 					vecX[i] = from.x;
 					vecY[i] = from.y;
 				}
-			} 
-
-			// this.pos.plusEq( this.vector.normalise().multiplyEq( this.distance/40+4 ) )
+			}
 		}
-
-
-		// var to = new Vector2( dotsX[0], dotsY[0] ),
-		// 	from = new Vector2( vecX[0], vecY[0] );
-		
-		// console.log(from.x, from.y);
-		// from.plusEq( to.normalise() );
-		// // dotsX[i] = from.x;
-		// // dotsY[i] = from.y;
-		
-		// console.log(from.x, from.y);
-		// console.log(to.x, to.y);
-		
-		// console.log(dotsX[0]);
-		// console.log(vecX[0], vecY[0]);
 
 		// Draw the dots
 		for ( var i = 0, l = c; i < l; i++ ) {
@@ -236,9 +201,7 @@
 			cx.fillRect( vecX[i], vecY[i], density, density );
 		}
 
-		// setTimeout(function(){
-			window.requestAnimationFrame(bants.render);
-		// }, 5);
+		window.requestAnimationFrame(bants.render);
 	};
 	
 	window.bants = bants;
