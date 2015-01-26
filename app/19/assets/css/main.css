@@ -1,0 +1,21 @@
+
+
+body, html {
+	background: #2b2c2f;
+	padding: 0;
+    margin: 0;
+}
+
+canvas {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    image-rendering: optimizeSpeed;
+    -webkit-interpolation-mode: nearest-neighbor;
+    z-index: 10;
+}

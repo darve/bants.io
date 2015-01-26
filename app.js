@@ -1,12 +1,23 @@
-var connect = require('connect');
 
-var args = {};
+/**
+ * Brioche
+ */
+var path     = require('path'),
+    express  = require('express'),
+    app      = express();
 
-process.argv.forEach(function (val, index, array) {
-	if ( val.indexOf('=') !== -1 ) {
-		args[val.split('=')[0]] = val.split('=')[1];
-	}
+app.use(express.bodyParser());
+app.use("/", express.compress());
+app.use("/", express.static(path.resolve(__dirname, "app")));
+app.use("/", function(req, res, next) {
+  res.send(404);
 });
 
-connect.createServer(connect.static(__dirname)).listen( args.port || 3000 );
-console.log( 'server running on port ' + args.port || 3000 );
+app.use(express.logger()); // Log requests to the console
+app.all('/', function(req, res) {
+  res.sendfile('index.html', { root: "app" });
+});
+
+var port = process.env.PORT || 3000;
+app.listen(port);
+console.log('Server listening on port ' + port);

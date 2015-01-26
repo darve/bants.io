@@ -1,0 +1,130 @@
+
+/* 	Global styles, yeah?
+/* ======================================= */
+
+* {
+	@include box-sizing( border-box );
+}
+
+body, html {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	font-family: sans-serif;
+}
+
+.section, .inner {
+    display: block;
+    position: relative;
+    width: 100%;
+}
+
+.inner {
+    max-width: 1080px;
+}
+
+canvas {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    image-rendering: optimizeSpeed;
+    -webkit-interpolation-mode: nearest-neighbor;
+
+    &.nocursor {
+        cursor: none;
+    }
+}
+
+header {
+    display: block;
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    min-width: 320px;
+    height: 210px;
+    font-family: 'Brawler', serif;
+    font-weight: normal;
+    font-style: normal;
+    color: #fff;
+    text-align: center;
+    padding: 40px 0;
+    margin: 0 auto 0 auto;
+    border-bottom: 1px solid #ce3f06;
+    text-shadow: 1px 1px 1px #ba3905;
+
+    a {
+        text-decoration: none;
+        color: white;
+
+        &:hover, &:focus, &:active {
+            border-bottom: 2px dashed white;
+        }
+    }
+
+    h1, h2 {
+        position: relative;
+        z-index: 1000;
+    }
+}
+
+canvas {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5
+}
+
+h1 {
+    position: relative;
+    font-size: 72px;
+    margin: 0 0 22px 0;
+    z-index: 10;
+    // pointer-events: none
+}
+
+h2 {
+    position: relative;
+    font-size: 24px;
+    margin: 0;
+    z-index: 10;
+    // pointer-events: none
+}
+
+#bants-list ul {
+    display: block;
+    margin: 0;
+    padding: 0
+}
+
+#bants-list ul li {
+    width: 33.333%;
+    float: left;
+    text-align: center;
+    font-size: 32px
+}
+
+#bants-list ul li a {
+    padding: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    -webkit-transition: all 0.1s ease-out;
+    -moz-transition: all 0.1s ease-out;
+    -o-transition: all 0.1s ease-out;
+    transition: all 0.1s ease-out
+}
+
+#bants-list ul li a img {
+    display: block;
+    width: 100%;
+}
+
+#bants-list ul li a:hover {
+    background: #f2f2f2
+}
