@@ -6,6 +6,7 @@ var Vert = Class.extend({
 		this.start = start;
 		this.end = this.start.plusNew( length );
 		this.length = length;
+		this.calculate();
 	},
 
 	calculate: function() {
@@ -19,7 +20,7 @@ var Vert = Class.extend({
 
 
 	draw: function() {
-		this.calculate();
+		
 		FUNK.ctx.beginPath();
 		FUNK.ctx.moveTo(this.start.x, this.start.y);
 		FUNK.ctx.lineTo(this.end.x, this.end.y);

@@ -31,7 +31,7 @@
 		mVecX = new Float32Array(128000),
 		mVecY = new Float32Array(128000),
 
-		density = 20,
+		density = 8,
 		scale = 1,
 		c = 0,
 		momentum = 100;

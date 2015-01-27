@@ -92,11 +92,6 @@ var FUNK = {
 				FUNK.bants[i] = {};
 			}
 		}
-
-		// if ( FUNK.framenum % 10  === 0 ) {
-		// 	FUNK.bants.push( new Bant( new Vector2( (FUNK.canvas.width/2)*.75, FUNK.canvas.height/2 ), new Vector2( .8, Math.floor( Math.random() * 1)) ));	
-		// }
-		
 	},
 
 	shadeColor: function(color, percent) {   
@@ -107,20 +102,6 @@ var FUNK = {
 	convertPath: function( path ) {
 		var newPath = "";
 		return newPath;
-	},
-
-	gfx: {
-		circle: function( pos, radius ) {
-
-		},
-
-		line: function( start, stop ) {
-
-		}, 
-
-		rect: function( start, top ) {
-			
-		}
 	}
 }
 
