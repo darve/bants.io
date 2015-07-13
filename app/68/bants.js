@@ -49,7 +49,7 @@
             }
             
             dots[i] = {
-                x: w2 - ((num/2) * spacing) + ( i * spacing),
+                x: w2 - ((num/2) * spacing) + (i * spacing),
                 y: h2,
                 inc: inc,
                 sine: 0
