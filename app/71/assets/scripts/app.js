@@ -14,9 +14,9 @@
         lastpos,
         col,
 
-        detail = 6,
-        // angle = 365 / detail,
-        angle = 45,
+        detail = 32,
+        angle = 360 / detail,
+        // angle = 45,
 
         // Some rad colours, should we need any.
         colours = [
@@ -49,6 +49,8 @@
     cx.fillStyle = 0x555555;
     cx.strokeStyle = 0x555555;
 
+    cx.globalCompositeOperation = "lighter";
+
     function randomColour() {
         return colours[Math.floor(Math.random() * colours.length)];
     }
@@ -75,7 +77,7 @@
     function go(ev) {
         if ( clicked === true ) {
             window.requestAnimationFrame(function() {
-                cx.lineWidth = 2;
+                cx.lineWidth = 1;
                 line(lastpos.x, lastpos.y, ev.pageX, ev.pageY, col);
                 line((lastpos.x * -1) + w, lastpos.y, (ev.pageX * -1) + w, ev.pageY, col);
                 line(lastpos.x, (lastpos.y * -1) + h, ev.pageX, (ev.pageY * -1) + h, col);
@@ -104,6 +106,15 @@
         c.width = w;
         c.height = h;
 
+        // cx.lineWidth = 10;
+        // cx.fillStyle = 0x555555;
+        // cx.strokeStyle = 0x555555;
+
+        // cx.globalCompositeOperation = "lighter";
+
+        // cx.fillStyle = "#2b2c2f";
+        // cx.fillRect(0,0,w,h);
+
         col = randomColour();
         dot(w/2, h/2, 2, col);
 
@@ -125,6 +136,8 @@
         $(doc).on('click', '.clear', function(ev) {
             ev.preventDefault
             cx.clearRect(0, 0, w, h);
+            // cx.fillStyle = "#2b2c2f";
+            // cx.fillRect(0,0,w,h);
             dot(w/2, h/2, 2, col);
         });
 
